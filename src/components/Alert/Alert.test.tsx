@@ -8,25 +8,27 @@ import {
 } from "./Alert";
 
 describe("Alert", () => {
-  it("renders when open", () => {
+  it("renders when open", async () => {
     render(
       <Alert open onClose={() => {}}>
         <AlertTitle>Test Alert</AlertTitle>
       </Alert>,
     );
-    expect(screen.getByText("Test Alert")).toBeInTheDocument();
+    expect(await screen.findByText("Test Alert")).toBeInTheDocument();
   });
 
-  it("renders AlertDescription text", () => {
+  it("renders AlertDescription text", async () => {
     render(
       <Alert open onClose={() => {}}>
         <AlertDescription>This is a description</AlertDescription>
       </Alert>,
     );
-    expect(screen.getByText("This is a description")).toBeInTheDocument();
+    expect(
+      await screen.findByText("This is a description"),
+    ).toBeInTheDocument();
   });
 
-  it("renders AlertBody children", () => {
+  it("renders AlertBody children", async () => {
     render(
       <Alert open onClose={() => {}}>
         <AlertBody>
@@ -34,10 +36,10 @@ describe("Alert", () => {
         </AlertBody>
       </Alert>,
     );
-    expect(screen.getByText("Body content")).toBeInTheDocument();
+    expect(await screen.findByText("Body content")).toBeInTheDocument();
   });
 
-  it("renders AlertActions children", () => {
+  it("renders AlertActions children", async () => {
     render(
       <Alert open onClose={() => {}}>
         <AlertActions>
@@ -45,10 +47,12 @@ describe("Alert", () => {
         </AlertActions>
       </Alert>,
     );
-    expect(screen.getByRole("button", { name: "OK" })).toBeInTheDocument();
+    expect(
+      await screen.findByRole("button", { name: "OK" }),
+    ).toBeInTheDocument();
   });
 
-  it("applies custom className to AlertBody", () => {
+  it("applies custom className to AlertBody", async () => {
     render(
       <Alert open onClose={() => {}}>
         <AlertBody data-testid="alert-body" className="custom-class">
@@ -56,6 +60,6 @@ describe("Alert", () => {
         </AlertBody>
       </Alert>,
     );
-    expect(screen.getByTestId("alert-body")).toHaveClass("custom-class");
+    expect(await screen.findByTestId("alert-body")).toHaveClass("custom-class");
   });
 });

@@ -8,25 +8,25 @@ import {
 } from "./Dialog";
 
 describe("Dialog", () => {
-  it("renders when open", () => {
+  it("renders when open", async () => {
     render(
       <Dialog open onClose={() => {}}>
         <DialogTitle>Test Dialog</DialogTitle>
       </Dialog>,
     );
-    expect(screen.getByText("Test Dialog")).toBeInTheDocument();
+    expect(await screen.findByText("Test Dialog")).toBeInTheDocument();
   });
 
-  it("renders DialogDescription text", () => {
+  it("renders DialogDescription text", async () => {
     render(
       <Dialog open onClose={() => {}}>
         <DialogDescription>Dialog description</DialogDescription>
       </Dialog>,
     );
-    expect(screen.getByText("Dialog description")).toBeInTheDocument();
+    expect(await screen.findByText("Dialog description")).toBeInTheDocument();
   });
 
-  it("renders DialogBody children", () => {
+  it("renders DialogBody children", async () => {
     render(
       <Dialog open onClose={() => {}}>
         <DialogBody>
@@ -34,10 +34,10 @@ describe("Dialog", () => {
         </DialogBody>
       </Dialog>,
     );
-    expect(screen.getByText("Body content")).toBeInTheDocument();
+    expect(await screen.findByText("Body content")).toBeInTheDocument();
   });
 
-  it("renders DialogActions with buttons", () => {
+  it("renders DialogActions with buttons", async () => {
     render(
       <Dialog open onClose={() => {}}>
         <DialogActions>
@@ -46,11 +46,15 @@ describe("Dialog", () => {
         </DialogActions>
       </Dialog>,
     );
-    expect(screen.getByRole("button", { name: "Cancel" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Confirm" })).toBeInTheDocument();
+    expect(
+      await screen.findByRole("button", { name: "Cancel" }),
+    ).toBeInTheDocument();
+    expect(
+      await screen.findByRole("button", { name: "Confirm" }),
+    ).toBeInTheDocument();
   });
 
-  it("applies custom className to DialogBody", () => {
+  it("applies custom className to DialogBody", async () => {
     render(
       <Dialog open onClose={() => {}}>
         <DialogBody data-testid="dialog-body" className="custom-body">
@@ -58,6 +62,6 @@ describe("Dialog", () => {
         </DialogBody>
       </Dialog>,
     );
-    expect(screen.getByTestId("dialog-body")).toHaveClass("custom-body");
+    expect(await screen.findByTestId("dialog-body")).toHaveClass("custom-body");
   });
 });
