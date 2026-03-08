@@ -31,13 +31,13 @@ pnpm storybook      # Storybook (localhost:6006)
 
 ```
 src/
-├── app/                          # Next.js App Router
+├── app/
 │   ├── layout.tsx                # ルートレイアウト (Geist, Noto Sans JP)
 │   ├── page.tsx                  # ホーム (コンポーネント一覧)
-│   ├── globals.css               # グローバルCSS + Tailwind テーマ
+│   ├── globals.css               # グローバルCSS + Tailwind テーマ + スクロールバー
 │   └── template/                 # コンポーネントショーケース
-│       ├── layout.tsx            # サイドバー付きレイアウト
-│       ├── _components/          # 共通パーツ (DemoSection, Header, Sidebar)
+│       ├── layout.tsx            # Server Component サイドバーレイアウト
+│       ├── _components/          # DemoSection, TemplatePageHeader, TemplateSidebar
 │       └── [component]/page.tsx  # 各コンポーネントのデモページ
 ├── components/                   # 再利用可能UIコンポーネント (27種)
 │   └── [Name]/
@@ -45,7 +45,9 @@ src/
 │       ├── [Name].stories.tsx    # Storybook ストーリー
 │       ├── [Name].test.tsx       # Jest テスト
 │       └── index.ts              # barrel export
-└── e2e/                          # Playwright E2E テスト
+├── e2e/                          # Playwright E2E テスト
+public/
+└── avatars/                      # ローカル SVG アバター (1.svg ~ 4.svg)
 ```
 
 ## Coding Conventions
@@ -58,6 +60,12 @@ src/
 - Compound component パターン (Dialog/DialogTitle など)
 - Named export のみ (default export は不使用、ページ除く)
 - アクセシビリティ重視 (ARIA, セマンティックHTML)
+
+### Client/Server Component 境界
+
+- `@headlessui/react` を使用する全コンポーネントに `"use client"` が必要
+- `src/components/Link/Link.tsx` は `next/link` (NextLink) を使用 — クライアントサイドナビゲーション維持のため
+- `src/app/template/layout.tsx` は Server Component — レイアウト永続化のため
 
 ### Import Alias
 
@@ -81,6 +89,12 @@ src/
 - ラベル・説明文は日本語
 - コンポーネント名・コード・変数名は英語
 
+### テンプレートページ作成時の注意
+
+- レイアウトコンポーネント (SidebarLayout, StackedLayout) のデモでは `fixed` 要素がコンテナ外に出ないよう `style={{ transform: "scale(1)" }}` で containing block を作る
+- AuthLayout のデモでは `className` prop で `min-h-dvh` をオーバーライドしてコンテナ内に収める
+- 入力/選択系コンポーネントには disabled 状態や空状態のデモも含める
+
 ## Component Categories
 
 | カテゴリ | コンポーネント |
@@ -90,3 +104,9 @@ src/
 | フィードバック | Alert, Dialog, Dropdown |
 | ナビゲーション | Link, Navbar, Pagination, Sidebar |
 | レイアウト | AuthLayout, Divider, SidebarLayout, StackedLayout |
+
+## Global Styling
+
+- **フォント**: `@theme inline` で `--font-sans` (Geist + Noto Sans JP) と `--font-mono` (Geist Mono) を定義
+- **スクロールバー**: `scrollbar-width: thin` + テーマ対応カラー (`--scrollbar-thumb`)
+- **カラーテーマ**: `:root` と `prefers-color-scheme: dark` で CSS 変数を切り替え
