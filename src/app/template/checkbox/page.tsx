@@ -62,6 +62,18 @@ export default function CheckboxPage() {
             ))}
           </div>
         </DemoSection>
+        <DemoSection title="Disabled" description="無効化状態。">
+          <CheckboxGroup>
+            <CheckboxField>
+              <Checkbox disabled />
+              <Label>Unchecked disabled</Label>
+            </CheckboxField>
+            <CheckboxField>
+              <Checkbox disabled defaultChecked />
+              <Label>Checked disabled</Label>
+            </CheckboxField>
+          </CheckboxGroup>
+        </DemoSection>
       </div>
     </div>
   );

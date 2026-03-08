@@ -28,6 +28,7 @@ const employees = [
 ];
 
 export default function ComboboxPage() {
+  const [empty, setEmpty] = useState<(typeof people)[number] | null>(null);
   const [selected, setSelected] = useState<(typeof people)[number] | null>(
     people[0],
   );
@@ -42,6 +43,29 @@ export default function ComboboxPage() {
         description="コンボボックスコンポーネントのパターン。"
       />
       <div className="mt-8 space-y-6">
+        <DemoSection
+          title="Empty"
+          description="未選択状態（プレースホルダー表示）。"
+        >
+          <div className="max-w-sm">
+            <Field>
+              <Label>Assignee</Label>
+              <Combobox
+                options={people}
+                displayValue={(person) => person?.name}
+                value={empty}
+                onChange={(val) => setEmpty(val)}
+                placeholder="Select a person..."
+              >
+                {(person) => (
+                  <ComboboxOption value={person}>
+                    <ComboboxLabel>{person.name}</ComboboxLabel>
+                  </ComboboxOption>
+                )}
+              </Combobox>
+            </Field>
+          </div>
+        </DemoSection>
         <DemoSection title="Basic" description="基本的なコンボボックス。">
           <div className="max-w-sm">
             <Field>

@@ -130,6 +130,63 @@ export default function TablePage() {
             </TableBody>
           </Table>
         </DemoSection>
+        <DemoSection title="Bleed" description="パディングなしの全幅表示。">
+          <Table bleed>
+            <TableHead>
+              <TableRow>
+                <TableHeader>Name</TableHeader>
+                <TableHeader>Title</TableHeader>
+                <TableHeader>Email</TableHeader>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {users.slice(0, 3).map((user) => (
+                <TableRow key={user.email}>
+                  <TableCell className="font-medium">{user.name}</TableCell>
+                  <TableCell>{user.title}</TableCell>
+                  <TableCell>{user.email}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </DemoSection>
+        <DemoSection
+          title="Clickable Rows"
+          description="クリック可能な行（リンク付き）。"
+        >
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableHeader>Name</TableHeader>
+                <TableHeader>Title</TableHeader>
+                <TableHeader>Email</TableHeader>
+                <TableHeader>Role</TableHeader>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {users.map((user) => (
+                <TableRow key={user.email} href="#" title={user.name}>
+                  <TableCell className="font-medium">{user.name}</TableCell>
+                  <TableCell>{user.title}</TableCell>
+                  <TableCell>{user.email}</TableCell>
+                  <TableCell>
+                    <Badge
+                      color={
+                        user.role === "Admin"
+                          ? "blue"
+                          : user.role === "Owner"
+                            ? "purple"
+                            : "zinc"
+                      }
+                    >
+                      {user.role}
+                    </Badge>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </DemoSection>
       </div>
     </div>
   );

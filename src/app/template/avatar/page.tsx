@@ -27,22 +27,10 @@ export default function AvatarPage() {
         </DemoSection>
         <DemoSection title="With Image" description="画像アバター。">
           <div className="flex items-center gap-4">
-            <Avatar
-              src="https://catalyst-demo.tailwindui.com/users/1.jpg"
-              className="size-8"
-            />
-            <Avatar
-              src="https://catalyst-demo.tailwindui.com/users/2.jpg"
-              className="size-10"
-            />
-            <Avatar
-              src="https://catalyst-demo.tailwindui.com/users/3.jpg"
-              className="size-12"
-            />
-            <Avatar
-              src="https://catalyst-demo.tailwindui.com/users/4.jpg"
-              className="size-16"
-            />
+            <Avatar src="/avatars/1.svg" className="size-8" />
+            <Avatar src="/avatars/2.svg" className="size-10" />
+            <Avatar src="/avatars/3.svg" className="size-12" />
+            <Avatar src="/avatars/4.svg" className="size-16" />
           </div>
         </DemoSection>
       </div>

@@ -107,6 +107,51 @@ export default function DropdownPage() {
             </DropdownMenu>
           </Dropdown>
         </DemoSection>
+        <DemoSection
+          title="Disabled Items"
+          description="無効化されたアイテム。"
+        >
+          <Dropdown>
+            <DropdownButton as={Button}>Actions</DropdownButton>
+            <DropdownMenu>
+              <DropdownItem>
+                <DropdownLabel>Edit</DropdownLabel>
+              </DropdownItem>
+              <DropdownItem disabled>
+                <DropdownLabel>Duplicate (disabled)</DropdownLabel>
+              </DropdownItem>
+              <DropdownDivider />
+              <DropdownItem>
+                <DropdownLabel>Archive</DropdownLabel>
+              </DropdownItem>
+              <DropdownItem disabled>
+                <DropdownLabel>Delete (disabled)</DropdownLabel>
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+        </DemoSection>
+        <DemoSection
+          title="Link Items"
+          description="リンクとして機能するアイテム。"
+        >
+          <Dropdown>
+            <DropdownButton as={Button} outline>
+              Navigate
+            </DropdownButton>
+            <DropdownMenu>
+              <DropdownItem href="#">
+                <DropdownLabel>Dashboard</DropdownLabel>
+              </DropdownItem>
+              <DropdownItem href="#">
+                <DropdownLabel>Settings</DropdownLabel>
+              </DropdownItem>
+              <DropdownDivider />
+              <DropdownItem href="#">
+                <DropdownLabel>Help</DropdownLabel>
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+        </DemoSection>
       </div>
     </div>
   );

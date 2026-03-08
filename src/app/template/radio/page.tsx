@@ -56,6 +56,20 @@ export default function RadioPage() {
             ))}
           </div>
         </DemoSection>
+        <DemoSection title="Disabled" description="無効化状態。">
+          <div className="max-w-sm">
+            <RadioGroup value="a" onChange={() => {}}>
+              <RadioField>
+                <Radio value="a" disabled />
+                <Label>Selected disabled</Label>
+              </RadioField>
+              <RadioField>
+                <Radio value="b" disabled />
+                <Label>Unselected disabled</Label>
+              </RadioField>
+            </RadioGroup>
+          </div>
+        </DemoSection>
       </div>
     </div>
   );

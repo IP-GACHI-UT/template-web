@@ -78,6 +78,18 @@ export default function SwitchPage() {
             ))}
           </div>
         </DemoSection>
+        <DemoSection title="Disabled" description="無効化状態。">
+          <div className="flex flex-wrap gap-4">
+            <SwitchField>
+              <Label>Off disabled</Label>
+              <Switch disabled />
+            </SwitchField>
+            <SwitchField>
+              <Label>On disabled</Label>
+              <Switch disabled defaultChecked />
+            </SwitchField>
+          </div>
+        </DemoSection>
       </div>
     </div>
   );

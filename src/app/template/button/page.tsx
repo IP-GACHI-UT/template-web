@@ -63,6 +63,20 @@ export default function ButtonPage() {
             </Button>
           </div>
         </DemoSection>
+        <DemoSection
+          title="Link Button"
+          description="href 付きのリンクボタン。"
+        >
+          <div className="flex flex-wrap gap-2">
+            <Button href="#">Solid Link</Button>
+            <Button href="#" outline>
+              Outline Link
+            </Button>
+            <Button href="#" plain>
+              Plain Link
+            </Button>
+          </div>
+        </DemoSection>
         <DemoSection title="Disabled" description="無効化状態。">
           <div className="flex flex-wrap gap-2">
             <Button disabled>Disabled Solid</Button>

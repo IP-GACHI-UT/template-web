@@ -63,6 +63,33 @@ export default function FieldsetPage() {
             </Fieldset>
           </div>
         </DemoSection>
+        <DemoSection
+          title="Disabled Fieldset"
+          description="フィールドセット全体の無効化。"
+        >
+          <div className="max-w-lg">
+            <Fieldset disabled>
+              <Legend>Account details</Legend>
+              <FieldGroup>
+                <Field>
+                  <Label>Username</Label>
+                  <Input type="text" defaultValue="john_doe" />
+                </Field>
+                <Field>
+                  <Label>Email</Label>
+                  <Input type="email" defaultValue="john@example.com" />
+                </Field>
+                <Field>
+                  <Label>Role</Label>
+                  <Select>
+                    <option>Admin</option>
+                    <option>Member</option>
+                  </Select>
+                </Field>
+              </FieldGroup>
+            </Fieldset>
+          </div>
+        </DemoSection>
       </div>
     </div>
   );

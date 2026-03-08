@@ -34,12 +34,13 @@ export function SidebarHeader({
   );
 }
 
-export function SidebarBody({
-  className,
-  ...props
-}: React.ComponentPropsWithoutRef<"div">) {
+export const SidebarBody = forwardRef(function SidebarBody(
+  { className, ...props }: React.ComponentPropsWithoutRef<"div">,
+  ref: React.ForwardedRef<HTMLDivElement>,
+) {
   return (
     <div
+      ref={ref}
       {...props}
       className={clsx(
         className,
@@ -47,7 +48,7 @@ export function SidebarBody({
       )}
     />
   );
-}
+});
 
 export function SidebarFooter({
   className,
