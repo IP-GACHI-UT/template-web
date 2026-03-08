@@ -90,6 +90,18 @@ export default function FieldsetPage() {
             </Fieldset>
           </div>
         </DemoSection>
+        <DemoSection
+          title="エラーメッセージ"
+          description="バリデーションエラーの表示例。"
+        >
+          <div className="max-w-lg">
+            <Field>
+              <Label>電話番号</Label>
+              <Input type="tel" placeholder="090-1234-5678" invalid />
+              <ErrorMessage>有効な電話番号を入力してください</ErrorMessage>
+            </Field>
+          </div>
+        </DemoSection>
       </div>
     </div>
   );

@@ -33,6 +33,17 @@ export default function AvatarPage() {
             <Avatar src="/avatars/4.svg" className="size-16" />
           </div>
         </DemoSection>
+        <DemoSection
+          title="Square with Image"
+          description="角型アバターに画像を表示。"
+        >
+          <div className="flex items-center gap-4">
+            <Avatar src="/avatars/1.svg" square className="size-8" />
+            <Avatar src="/avatars/2.svg" square className="size-10" />
+            <Avatar src="/avatars/3.svg" square className="size-12" />
+            <Avatar src="/avatars/4.svg" square className="size-16" />
+          </div>
+        </DemoSection>
       </div>
     </div>
   );

@@ -20,6 +20,7 @@ type DialogState = {
   sm: boolean;
   lg: boolean;
   xl: boolean;
+  destructive: boolean;
 };
 
 type DialogAction =
@@ -37,6 +38,7 @@ export default function DialogPage() {
     sm: false,
     lg: false,
     xl: false,
+    destructive: false,
   });
 
   return (
@@ -191,6 +193,44 @@ export default function DialogPage() {
               </Button>
               <Button onClick={() => dispatch({ type: "close", dialog: "xl" })}>
                 Save
+              </Button>
+            </DialogActions>
+          </Dialog>
+        </DemoSection>
+        <DemoSection
+          title="削除確認"
+          description="危険なアクションを確認するダイアログ。"
+        >
+          <Button
+            color="red"
+            onClick={() => dispatch({ type: "open", dialog: "destructive" })}
+          >
+            アカウントを削除
+          </Button>
+          <Dialog
+            open={dialogs.destructive}
+            onClose={() => dispatch({ type: "close", dialog: "destructive" })}
+          >
+            <DialogTitle>アカウントの削除</DialogTitle>
+            <DialogDescription>
+              この操作は取り消せません。アカウントに関連するすべてのデータが完全に削除されます。本当に削除しますか？
+            </DialogDescription>
+            <DialogActions>
+              <Button
+                plain
+                onClick={() =>
+                  dispatch({ type: "close", dialog: "destructive" })
+                }
+              >
+                キャンセル
+              </Button>
+              <Button
+                color="red"
+                onClick={() =>
+                  dispatch({ type: "close", dialog: "destructive" })
+                }
+              >
+                削除する
               </Button>
             </DialogActions>
           </Dialog>

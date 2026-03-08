@@ -35,6 +35,9 @@ export default function ComboboxPage() {
   const [selectedEmployee, setSelectedEmployee] = useState<
     (typeof employees)[number] | null
   >(employees[0]);
+  const [topSelected, setTopSelected] = useState<
+    (typeof people)[number] | null
+  >(people[0]);
 
   return (
     <div className="max-w-4xl">
@@ -120,6 +123,30 @@ export default function ComboboxPage() {
                 value={people[0]}
                 onChange={() => {}}
                 placeholder="Select a person..."
+              >
+                {(person) => (
+                  <ComboboxOption value={person}>
+                    <ComboboxLabel>{person.name}</ComboboxLabel>
+                  </ComboboxOption>
+                )}
+              </Combobox>
+            </Field>
+          </div>
+        </DemoSection>
+        <DemoSection
+          title="上方向に開く"
+          description="ドロップダウンが上方向に展開されるコンボボックス。"
+        >
+          <div className="mt-40 max-w-sm">
+            <Field>
+              <Label>Assignee</Label>
+              <Combobox
+                options={people}
+                displayValue={(person) => person?.name}
+                value={topSelected}
+                onChange={(val) => setTopSelected(val)}
+                placeholder="Select a person..."
+                anchor="top"
               >
                 {(person) => (
                   <ComboboxOption value={person}>

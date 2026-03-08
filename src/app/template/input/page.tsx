@@ -91,6 +91,21 @@ export default function InputPage() {
             </Field>
           </div>
         </DemoSection>
+        <DemoSection
+          title="無効状態"
+          description="無効化された入力フィールド。"
+        >
+          <div className="max-w-sm space-y-8">
+            <Field>
+              <Label>プレースホルダー付き</Label>
+              <Input type="text" disabled placeholder="入力できません" />
+            </Field>
+            <Field>
+              <Label>値付き</Label>
+              <Input type="text" disabled defaultValue="変更できない値" />
+            </Field>
+          </div>
+        </DemoSection>
       </div>
     </div>
   );

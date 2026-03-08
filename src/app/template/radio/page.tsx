@@ -14,14 +14,27 @@ const plans = [
 
 const radioColors = [
   "dark/zinc",
+  "dark/white",
+  "white",
+  "dark",
+  "zinc",
   "red",
   "orange",
+  "amber",
+  "yellow",
+  "lime",
   "green",
+  "emerald",
+  "teal",
+  "cyan",
+  "sky",
   "blue",
   "indigo",
   "violet",
   "purple",
+  "fuchsia",
   "pink",
+  "rose",
 ] as const;
 
 export default function RadioPage() {

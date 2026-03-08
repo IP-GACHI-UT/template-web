@@ -50,6 +50,26 @@ export default function PaginationPage_() {
             <PaginationNext href="#" />
           </Pagination>
         </DemoSection>
+        <DemoSection
+          title="最終ページ"
+          description="最終ページ（次へボタン無効）。"
+        >
+          <Pagination>
+            <PaginationPrevious href="#" />
+            <PaginationList>
+              <PaginationPage href="#">1</PaginationPage>
+              <PaginationPage href="#">2</PaginationPage>
+              <PaginationPage href="#">3</PaginationPage>
+              <PaginationGap />
+              <PaginationPage href="#">8</PaginationPage>
+              <PaginationPage href="#">9</PaginationPage>
+              <PaginationPage href="#" current>
+                10
+              </PaginationPage>
+            </PaginationList>
+            <PaginationNext href={null} />
+          </Pagination>
+        </DemoSection>
       </div>
     </div>
   );

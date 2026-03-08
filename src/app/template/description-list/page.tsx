@@ -34,6 +34,25 @@ export default function DescriptionListPage() {
             </DescriptionDetails>
           </DescriptionList>
         </DemoSection>
+        <DemoSection
+          title="複数項目"
+          description="詳細なユーザープロフィール情報の表示例。"
+        >
+          <DescriptionList>
+            <DescriptionTerm>氏名</DescriptionTerm>
+            <DescriptionDetails>田中 太郎</DescriptionDetails>
+            <DescriptionTerm>メールアドレス</DescriptionTerm>
+            <DescriptionDetails>tanaka.taro@example.com</DescriptionDetails>
+            <DescriptionTerm>役職</DescriptionTerm>
+            <DescriptionDetails>シニアエンジニア</DescriptionDetails>
+            <DescriptionTerm>部署</DescriptionTerm>
+            <DescriptionDetails>プロダクト開発部</DescriptionDetails>
+            <DescriptionTerm>勤務地</DescriptionTerm>
+            <DescriptionDetails>東京オフィス</DescriptionDetails>
+            <DescriptionTerm>入社日</DescriptionTerm>
+            <DescriptionDetails>2021年4月1日</DescriptionDetails>
+          </DescriptionList>
+        </DemoSection>
       </div>
     </div>
   );

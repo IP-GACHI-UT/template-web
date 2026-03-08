@@ -45,6 +45,37 @@ export default function SelectPage() {
             </Field>
           </div>
         </DemoSection>
+        <DemoSection
+          title="グループ化"
+          description="optgroup でカテゴリ別に選択肢をグループ化。"
+        >
+          <div className="max-w-sm">
+            <Field>
+              <Label>食べ物</Label>
+              <Description>
+                カテゴリ別に分類された食べ物を選択してください。
+              </Description>
+              <Select>
+                <option value="">選択してください</option>
+                <optgroup label="果物">
+                  <option value="apple">りんご</option>
+                  <option value="banana">バナナ</option>
+                  <option value="orange">オレンジ</option>
+                </optgroup>
+                <optgroup label="野菜">
+                  <option value="carrot">にんじん</option>
+                  <option value="broccoli">ブロッコリー</option>
+                  <option value="spinach">ほうれん草</option>
+                </optgroup>
+                <optgroup label="肉類">
+                  <option value="beef">牛肉</option>
+                  <option value="chicken">鶏肉</option>
+                  <option value="pork">豚肉</option>
+                </optgroup>
+              </Select>
+            </Field>
+          </div>
+        </DemoSection>
       </div>
     </div>
   );

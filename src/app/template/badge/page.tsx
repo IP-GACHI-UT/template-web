@@ -40,6 +40,19 @@ export default function BadgePage() {
             ))}
           </div>
         </DemoSection>
+        <DemoSection
+          title="コンテンツバリエーション"
+          description="異なるコンテンツを含むバッジの表示例。"
+        >
+          <div className="flex flex-wrap items-center gap-2">
+            <Badge color="blue">新着</Badge>
+            <Badge color="green">公開中のステータス</Badge>
+            <Badge color="red">99+</Badge>
+            <Badge color="amber">3</Badge>
+            <Badge color="purple">プレミアムプラン</Badge>
+            <Badge color="zinc">0</Badge>
+          </div>
+        </DemoSection>
       </div>
     </div>
   );
