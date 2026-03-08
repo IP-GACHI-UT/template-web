@@ -9,11 +9,26 @@ Next.js 16 + React 19 ベースの UI コンポーネントテンプレートラ
 
 Node.js や pnpm の確認・インストールから依存関係の導入まで自動で行います。
 
+**macOS / Linux:**
+
 ```bash
 git clone <repository-url>
 cd template-web
 bash scripts/setup.sh
 ```
+
+**Windows:**
+
+Git Bash（Git for Windows に付属）から実行してください。
+
+```bash
+git clone <repository-url>
+cd template-web
+bash scripts/setup.sh
+```
+
+> **注意:** PowerShell で `bash` を実行すると WSL が起動し、Windows 側の Node.js が認識されません。
+> Git Bash ターミナルを直接開いて実行するか、[手動セットアップ](#手動セットアップ) を参照してください。
 
 このスクリプトは以下を自動で処理します:
 
