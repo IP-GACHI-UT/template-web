@@ -12,3 +12,11 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: { href: "#", children: "Click me" },
 };
+
+export const WithClassName: Story = {
+  args: {
+    href: "#",
+    children: "カスタムスタイルのリンク",
+    className: "text-blue-600 underline hover:text-blue-800",
+  },
+};

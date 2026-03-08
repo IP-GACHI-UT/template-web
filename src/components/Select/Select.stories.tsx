@@ -29,17 +29,6 @@ export const Disabled: Story = {
   ),
 };
 
-export const Multiple: Story = {
-  render: () => (
-    <Select multiple>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-      <option value="4">Option 4</option>
-    </Select>
-  ),
-};
-
 export const WithOptgroup: Story = {
   render: () => (
     <Select>
@@ -51,6 +40,17 @@ export const WithOptgroup: Story = {
         <option value="carrot">Carrot</option>
         <option value="lettuce">Lettuce</option>
       </optgroup>
+    </Select>
+  ),
+};
+
+export const WithDefaultValue: Story = {
+  render: () => (
+    <Select defaultValue="3">
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+      <option value="4">Option 4</option>
     </Select>
   ),
 };

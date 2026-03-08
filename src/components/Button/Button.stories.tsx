@@ -42,3 +42,84 @@ export const Red: Story = {
     children: "Red",
   },
 };
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+    children: "無効なボタン",
+  },
+};
+
+export const AsLink: Story = {
+  args: {
+    href: "#",
+    children: "リンクボタン",
+  },
+};
+
+export const Colors: StoryObj = {
+  render: () => {
+    const colors = [
+      "dark/zinc",
+      "light",
+      "dark/white",
+      "dark",
+      "white",
+      "zinc",
+      "indigo",
+      "cyan",
+      "red",
+      "orange",
+      "amber",
+      "yellow",
+      "lime",
+      "green",
+      "emerald",
+      "teal",
+      "sky",
+      "blue",
+      "violet",
+      "purple",
+      "fuchsia",
+      "pink",
+      "rose",
+    ] as const;
+    return (
+      <div className="flex flex-wrap gap-3">
+        {colors.map((color) => (
+          <Button key={color} color={color}>
+            {color}
+          </Button>
+        ))}
+      </div>
+    );
+  },
+};
+
+export const OutlineVariants: StoryObj = {
+  render: () => (
+    <div className="flex flex-wrap gap-3">
+      <Button outline>デフォルト</Button>
+      <Button outline disabled>
+        無効
+      </Button>
+      <Button outline href="#">
+        リンク
+      </Button>
+    </div>
+  ),
+};
+
+export const PlainVariants: StoryObj = {
+  render: () => (
+    <div className="flex flex-wrap gap-3">
+      <Button plain>デフォルト</Button>
+      <Button plain disabled>
+        無効
+      </Button>
+      <Button plain href="#">
+        リンク
+      </Button>
+    </div>
+  ),
+};

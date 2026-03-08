@@ -3,6 +3,7 @@ import { Button } from "../Button";
 import {
   Dropdown,
   DropdownButton,
+  DropdownDescription,
   DropdownDivider,
   DropdownHeading,
   DropdownItem,
@@ -82,6 +83,77 @@ export const WithShortcuts: Story = {
         <DropdownItem>
           <DropdownLabel>Save</DropdownLabel>
           <DropdownShortcut keys={["Ctrl", "S"]} />
+        </DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  ),
+};
+
+export const WithLinks: Story = {
+  render: () => (
+    <Dropdown>
+      <DropdownButton as={Button}>Navigate</DropdownButton>
+      <DropdownMenu>
+        <DropdownItem href="/template">
+          <DropdownLabel>Dashboard</DropdownLabel>
+        </DropdownItem>
+        <DropdownItem href="/template/button">
+          <DropdownLabel>Button</DropdownLabel>
+        </DropdownItem>
+        <DropdownItem href="/template/input">
+          <DropdownLabel>Input</DropdownLabel>
+        </DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  ),
+};
+
+export const WithDescriptions: Story = {
+  render: () => (
+    <Dropdown>
+      <DropdownButton as={Button}>Account</DropdownButton>
+      <DropdownMenu>
+        <DropdownItem>
+          <DropdownLabel>Profile</DropdownLabel>
+          <DropdownDescription>
+            View and edit your profile information
+          </DropdownDescription>
+        </DropdownItem>
+        <DropdownItem>
+          <DropdownLabel>Settings</DropdownLabel>
+          <DropdownDescription>
+            Manage your account preferences
+          </DropdownDescription>
+        </DropdownItem>
+        <DropdownDivider />
+        <DropdownItem>
+          <DropdownLabel>Sign out</DropdownLabel>
+          <DropdownDescription>
+            Log out of your current session
+          </DropdownDescription>
+        </DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  ),
+};
+
+export const DisabledItems: Story = {
+  render: () => (
+    <Dropdown>
+      <DropdownButton as={Button}>Actions</DropdownButton>
+      <DropdownMenu>
+        <DropdownItem>
+          <DropdownLabel>Edit</DropdownLabel>
+        </DropdownItem>
+        <DropdownItem>
+          <DropdownLabel>Duplicate</DropdownLabel>
+        </DropdownItem>
+        <DropdownDivider />
+        <DropdownItem disabled>
+          <DropdownLabel>Archive</DropdownLabel>
+        </DropdownItem>
+        <DropdownItem disabled>
+          <DropdownLabel>Delete</DropdownLabel>
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>

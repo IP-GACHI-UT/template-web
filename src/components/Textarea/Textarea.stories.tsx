@@ -14,3 +14,11 @@ export const Default: Story = {};
 export const NonResizable: Story = {
   args: { resizable: false },
 };
+
+export const WithPlaceholder: Story = {
+  args: { placeholder: "ここにテキストを入力してください" },
+};
+
+export const Disabled: Story = {
+  args: { disabled: true },
+};

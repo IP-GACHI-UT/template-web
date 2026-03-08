@@ -40,6 +40,38 @@ export const SmallSize: StoryObj = {
   ),
 };
 
+export const MediumSize: StoryObj = {
+  render: () => (
+    <Dialog open onClose={() => {}} size="md">
+      <DialogTitle>Medium Dialog</DialogTitle>
+      <DialogBody>
+        This is a medium-sized dialog panel. It provides a balanced width for
+        standard forms and confirmation messages.
+      </DialogBody>
+      <DialogActions>
+        <Button plain>Cancel</Button>
+        <Button>OK</Button>
+      </DialogActions>
+    </Dialog>
+  ),
+};
+
+export const ExtraLargeSize: StoryObj = {
+  render: () => (
+    <Dialog open onClose={() => {}} size="xl">
+      <DialogTitle>Extra Large Dialog</DialogTitle>
+      <DialogBody>
+        This is an extra-large dialog panel. It offers a wider layout suitable
+        for displaying rich content, data tables, or multi-column forms.
+      </DialogBody>
+      <DialogActions>
+        <Button plain>Cancel</Button>
+        <Button>Confirm</Button>
+      </DialogActions>
+    </Dialog>
+  ),
+};
+
 export const LargeSize: StoryObj = {
   render: () => (
     <Dialog open onClose={() => {}} size="2xl">

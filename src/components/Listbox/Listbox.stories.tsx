@@ -1,5 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Listbox, ListboxLabel, ListboxOption } from "./Listbox";
+import {
+  Listbox,
+  ListboxDescription,
+  ListboxLabel,
+  ListboxOption,
+} from "./Listbox";
 
 const meta = {
   title: "Components/Listbox",
@@ -11,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <Listbox value="apple" onChange={() => {}} placeholder="Select a fruit">
+    <Listbox defaultValue="apple" placeholder="Select a fruit">
       <ListboxOption value="apple">
         <ListboxLabel>Apple</ListboxLabel>
       </ListboxOption>
@@ -27,7 +32,7 @@ export const Default: Story = {
 
 export const WithPlaceholder: Story = {
   render: () => (
-    <Listbox value={null} onChange={() => {}} placeholder="Select a fruit">
+    <Listbox placeholder="Select a fruit">
       <ListboxOption value="apple">
         <ListboxLabel>Apple</ListboxLabel>
       </ListboxOption>
@@ -43,12 +48,7 @@ export const WithPlaceholder: Story = {
 
 export const Disabled: Story = {
   render: () => (
-    <Listbox
-      value="apple"
-      onChange={() => {}}
-      disabled
-      placeholder="Select a fruit"
-    >
+    <Listbox defaultValue="apple" disabled placeholder="Select a fruit">
       <ListboxOption value="apple">
         <ListboxLabel>Apple</ListboxLabel>
       </ListboxOption>
@@ -61,12 +61,31 @@ export const Disabled: Story = {
 
 export const ManyOptions: Story = {
   render: () => (
-    <Listbox value="item-1" onChange={() => {}} placeholder="Select an item">
+    <Listbox defaultValue="item-1" placeholder="Select an item">
       {Array.from({ length: 20 }, (_, i) => (
         <ListboxOption key={`item-${i + 1}`} value={`item-${i + 1}`}>
           <ListboxLabel>Item {i + 1}</ListboxLabel>
         </ListboxOption>
       ))}
+    </Listbox>
+  ),
+};
+
+export const WithDescription: Story = {
+  render: () => (
+    <Listbox defaultValue="tokyo" placeholder="都市を選択">
+      <ListboxOption value="tokyo">
+        <ListboxLabel>東京</ListboxLabel>
+        <ListboxDescription>日本の首都</ListboxDescription>
+      </ListboxOption>
+      <ListboxOption value="osaka">
+        <ListboxLabel>大阪</ListboxLabel>
+        <ListboxDescription>西日本の中心都市</ListboxDescription>
+      </ListboxOption>
+      <ListboxOption value="kyoto">
+        <ListboxLabel>京都</ListboxLabel>
+        <ListboxDescription>歴史と文化の街</ListboxDescription>
+      </ListboxOption>
     </Listbox>
   ),
 };

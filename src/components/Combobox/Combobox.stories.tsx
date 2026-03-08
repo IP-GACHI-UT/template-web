@@ -11,12 +11,7 @@ const options = ["Apple", "Banana", "Cherry"];
 
 export const Default: StoryObj = {
   render: () => (
-    <Combobox
-      options={options}
-      displayValue={(v) => v ?? ""}
-      value={null}
-      onChange={() => {}}
-    >
+    <Combobox options={options} displayValue={(v) => v ?? ""}>
       {(option) => (
         <ComboboxOption value={option}>
           <ComboboxLabel>{option}</ComboboxLabel>
@@ -31,8 +26,6 @@ export const WithPlaceholder: StoryObj = {
     <Combobox
       options={options}
       displayValue={(v) => v ?? ""}
-      value={null}
-      onChange={() => {}}
       placeholder="Search a fruit..."
     >
       {(option) => (
@@ -50,7 +43,6 @@ export const WithDefaultValue: StoryObj = {
       options={options}
       displayValue={(v) => v ?? ""}
       defaultValue="Banana"
-      onChange={() => {}}
     >
       {(option) => (
         <ComboboxOption value={option}>
@@ -63,12 +55,42 @@ export const WithDefaultValue: StoryObj = {
 
 export const Disabled: StoryObj = {
   render: () => (
+    <Combobox options={options} displayValue={(v) => v ?? ""} disabled>
+      {(option) => (
+        <ComboboxOption value={option}>
+          <ComboboxLabel>{option}</ComboboxLabel>
+        </ComboboxOption>
+      )}
+    </Combobox>
+  ),
+};
+
+export const AnchorTop: StoryObj = {
+  render: () => (
+    <div className="mt-60">
+      <Combobox
+        options={options}
+        displayValue={(v) => v ?? ""}
+        anchor="top"
+        placeholder="ドロップダウンが上に開きます"
+      >
+        {(option) => (
+          <ComboboxOption value={option}>
+            <ComboboxLabel>{option}</ComboboxLabel>
+          </ComboboxOption>
+        )}
+      </Combobox>
+    </div>
+  ),
+};
+
+export const WithAriaLabel: StoryObj = {
+  render: () => (
     <Combobox
       options={options}
       displayValue={(v) => v ?? ""}
-      value={null}
-      onChange={() => {}}
-      disabled
+      aria-label="果物を選択"
+      placeholder="果物を検索..."
     >
       {(option) => (
         <ComboboxOption value={option}>
