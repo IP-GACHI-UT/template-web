@@ -5,12 +5,34 @@ Next.js 16 + React 19 ベースの UI コンポーネントテンプレートラ
 
 ## クイックスタート
 
-### 前提条件
+### ワンコマンドセットアップ
+
+Node.js や pnpm の確認・インストールから依存関係の導入まで自動で行います。
+
+```bash
+git clone <repository-url>
+cd template-web
+bash scripts/setup.sh
+```
+
+このスクリプトは以下を自動で処理します:
+
+1. **Node.js** — 未インストール or バージョン不足の場合、fnm / nvm 経由でインストール
+2. **pnpm** — 未インストール or バージョン不足の場合、corepack or npm 経由でインストール
+3. **依存関係** — `pnpm install` を実行
+4. **Playwright** — E2E テスト用ブラウザのインストール (オプション、対話で選択)
+
+### 手動セットアップ
+
+<details>
+<summary>スクリプトを使わずに手動でセットアップする場合</summary>
+
+#### 前提条件
 
 - **Node.js** >= 22
 - **pnpm** >= 10
 
-### 1. Node.js のインストール
+#### 1. Node.js のインストール
 
 Node.js がインストールされていない、またはバージョンが古い場合は [fnm](https://github.com/Schniz/fnm) (推奨) か [nvm](https://github.com/nvm-sh/nvm) でインストールしてください。
 
@@ -35,7 +57,7 @@ nvm install 22
 nvm use 22
 ```
 
-### 2. pnpm のインストール
+#### 2. pnpm のインストール
 
 ```bash
 # pnpm がインストールされているか確認
@@ -49,17 +71,19 @@ corepack prepare pnpm@latest --activate
 npm install -g pnpm
 ```
 
-### 3. プロジェクトのセットアップ
+#### 3. プロジェクトのセットアップ
 
 ```bash
-# リポジトリをクローン
 git clone <repository-url>
 cd template-web
-
-# 依存関係をインストール
 pnpm install
+```
 
-# 開発サーバーを起動
+</details>
+
+### 開発サーバーの起動
+
+```bash
 pnpm dev
 ```
 
