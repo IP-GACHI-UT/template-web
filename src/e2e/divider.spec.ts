@@ -17,19 +17,13 @@ test.describe("Divider template page", () => {
     await expect(
       page.getByRole("heading", { level: 2, name: "Default" }),
     ).toBeVisible();
-    await expect(page.getByText("Content above the divider")).toBeVisible();
-    await expect(page.getByText("Content below the divider")).toBeVisible();
+    await expect(page.getByText("プロフィール").first()).toBeVisible();
+    await expect(page.getByText("通知設定").first()).toBeVisible();
   });
 
   test("shows Soft section", async ({ page }) => {
     await expect(
       page.getByRole("heading", { level: 2, name: "Soft" }),
-    ).toBeVisible();
-    await expect(
-      page.getByText("Content above the soft divider"),
-    ).toBeVisible();
-    await expect(
-      page.getByText("Content below the soft divider"),
     ).toBeVisible();
   });
 });

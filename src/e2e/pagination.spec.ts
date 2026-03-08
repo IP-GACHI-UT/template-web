@@ -18,7 +18,9 @@ test.describe("Pagination template page", () => {
     await expect(
       page.getByRole("link", { name: "Page 2" }).first(),
     ).toBeVisible();
-    await expect(page.getByRole("link", { name: "Page 10" })).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: "Page 10" }).first(),
+    ).toBeVisible();
   });
 
   test("has Previous and Next navigation", async ({ page }) => {

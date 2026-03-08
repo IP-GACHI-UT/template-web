@@ -19,13 +19,21 @@ test.describe("Avatar template page", () => {
 
   test("shows Square section", async ({ page }) => {
     await expect(
-      page.getByRole("heading", { level: 2, name: "Square" }),
+      page.getByRole("heading", {
+        level: 2,
+        name: "Square",
+        exact: true,
+      }),
     ).toBeVisible();
   });
 
   test("shows With Image section with img elements", async ({ page }) => {
     await expect(
-      page.getByRole("heading", { level: 2, name: "With Image" }),
+      page.getByRole("heading", {
+        level: 2,
+        name: "With Image",
+        exact: true,
+      }),
     ).toBeVisible();
     const images = page.locator("img");
     await expect(images.first()).toBeVisible();

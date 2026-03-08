@@ -12,16 +12,22 @@ test.describe("AuthLayout template page", () => {
   });
 
   test("shows Sign in heading", async ({ page }) => {
-    await expect(page.getByRole("heading", { name: "Sign in" })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "アカウントにサインイン" }),
+    ).toBeVisible();
   });
 
   test("has Email and Password fields", async ({ page }) => {
-    await expect(page.getByText("Email")).toBeVisible();
-    await expect(page.getByText("Password")).toBeVisible();
-    await expect(page.getByPlaceholder("you@example.com")).toBeVisible();
+    await expect(page.getByText("メールアドレス").first()).toBeVisible();
+    await expect(page.getByText("パスワード").first()).toBeVisible();
+    await expect(
+      page.getByPlaceholder("you@example.com").first(),
+    ).toBeVisible();
   });
 
   test("has Sign in button", async ({ page }) => {
-    await expect(page.getByRole("button", { name: "Sign in" })).toBeVisible();
+    await expect(
+      page.getByRole("button", { name: "サインイン" }),
+    ).toBeVisible();
   });
 });

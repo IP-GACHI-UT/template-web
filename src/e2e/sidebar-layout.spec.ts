@@ -12,14 +12,14 @@ test.describe("SidebarLayout template page", () => {
   });
 
   test("shows embedded sidebar items", async ({ page }) => {
-    await expect(page.getByText("Dashboard").first()).toBeVisible();
-    await expect(page.getByText("Orders").first()).toBeVisible();
-    await expect(page.getByText("Products").first()).toBeVisible();
+    await expect(page.getByText("ダッシュボード").first()).toBeVisible();
+    await expect(page.getByText("受信トレイ").first()).toBeVisible();
+    await expect(page.getByText("レポート").first()).toBeVisible();
   });
 
   test("shows main content area", async ({ page }) => {
     await expect(
-      page.getByText("This is the main content area of the sidebar layout."),
+      page.getByText("プロジェクトの進捗状況とチームの活動を確認できます。"),
     ).toBeVisible();
   });
 });

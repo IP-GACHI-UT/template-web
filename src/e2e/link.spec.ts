@@ -11,12 +11,12 @@ test.describe("Link template page", () => {
     ).toBeVisible();
   });
 
-  test("shows Basic Link section", async ({ page }) => {
+  test("shows TextLink section", async ({ page }) => {
     await expect(
-      page.getByRole("heading", { level: 2, name: "Basic Link" }),
+      page.getByRole("heading", { level: 2, name: "TextLink" }),
     ).toBeVisible();
     await expect(
-      page.getByRole("link", { name: "Default link" }),
+      page.getByRole("link", { name: "Styled text link" }),
     ).toBeVisible();
   });
 

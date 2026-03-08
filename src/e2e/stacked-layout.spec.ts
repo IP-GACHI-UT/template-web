@@ -12,14 +12,14 @@ test.describe("StackedLayout template page", () => {
   });
 
   test("shows embedded navbar items", async ({ page }) => {
-    await expect(page.getByText("Dashboard").first()).toBeVisible();
-    await expect(page.getByText("Orders").first()).toBeVisible();
-    await expect(page.getByText("Settings").first()).toBeVisible();
+    await expect(page.getByText("ダッシュボード").first()).toBeVisible();
+    await expect(page.getByText("注文").first()).toBeVisible();
+    await expect(page.getByText("商品").first()).toBeVisible();
   });
 
   test("shows main content", async ({ page }) => {
     await expect(
-      page.getByText("This is the stacked layout with a top navbar."),
+      page.getByText("売上の概要と最近の注文状況を確認できます。"),
     ).toBeVisible();
   });
 });

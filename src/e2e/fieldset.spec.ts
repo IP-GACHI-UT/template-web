@@ -12,7 +12,7 @@ test.describe("Fieldset template page", () => {
   });
 
   test("shows legend text", async ({ page }) => {
-    const legend = page.locator("[data-slot='legend']");
+    const legend = page.locator("[data-slot='legend']").first();
     await expect(legend).toBeVisible();
     await expect(legend).toContainText("Shipping details");
   });

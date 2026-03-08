@@ -36,7 +36,10 @@ test.describe("Dropdown template page", () => {
   });
 
   test("shows With Description & Shortcut dropdown", async ({ page }) => {
-    await page.getByRole("button", { name: "Actions", exact: true }).click();
+    await page
+      .getByRole("button", { name: "Actions", exact: true })
+      .first()
+      .click();
     await expect(
       page.getByRole("menuitem", { name: "Edit" }).first(),
     ).toBeVisible();

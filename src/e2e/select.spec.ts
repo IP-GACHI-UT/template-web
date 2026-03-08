@@ -11,9 +11,9 @@ test.describe("Select template page", () => {
     ).toBeVisible();
   });
 
-  test("has 3 select elements", async ({ page }) => {
+  test("has 4 select elements", async ({ page }) => {
     const selects = page.locator("select");
-    await expect(selects).toHaveCount(3);
+    await expect(selects).toHaveCount(4);
   });
 
   test("disabled select is disabled", async ({ page }) => {

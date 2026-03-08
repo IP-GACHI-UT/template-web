@@ -12,7 +12,7 @@ test.describe("Combobox template page", () => {
   });
 
   test("shows initial selected value", async ({ page }) => {
-    const combobox = page.getByRole("combobox").first();
+    const combobox = page.getByRole("combobox").nth(1);
     await expect(combobox).toHaveValue("Tom Cook");
   });
 
@@ -26,7 +26,7 @@ test.describe("Combobox template page", () => {
     await expect(
       page.getByRole("heading", { level: 2, name: "Disabled" }),
     ).toBeVisible();
-    const disabledCombobox = page.getByRole("combobox").nth(2);
+    const disabledCombobox = page.getByRole("combobox").nth(3);
     await expect(disabledCombobox).toBeDisabled();
   });
 });

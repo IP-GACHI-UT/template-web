@@ -22,7 +22,7 @@ test.describe("Table template page", () => {
       page.getByRole("columnheader", { name: "Email" }).first(),
     ).toBeVisible();
     await expect(
-      page.getByRole("columnheader", { name: "Role" }),
+      page.getByRole("columnheader", { name: "Role" }).first(),
     ).toBeVisible();
   });
 

@@ -12,7 +12,7 @@ test.describe("Alert template page", () => {
   });
 
   test("opens and closes basic alert dialog", async ({ page }) => {
-    await page.getByRole("button", { name: "Open Alert" }).click();
+    await page.getByRole("button", { name: "Open Alert", exact: true }).click();
     await expect(page.getByText("Are you sure?")).toBeVisible();
     await expect(page.getByText("This action cannot be undone.")).toBeVisible();
     await page.getByRole("button", { name: "Cancel" }).click();
