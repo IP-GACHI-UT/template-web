@@ -2,9 +2,8 @@
 
 import * as Headless from "@headlessui/react";
 import clsx from "clsx";
-import { domAnimation, LayoutGroup, LazyMotion, m } from "motion/react";
 import type React from "react";
-import { forwardRef, useId } from "react";
+import { forwardRef } from "react";
 import { TouchTarget } from "../Button";
 import { Link } from "../Link";
 
@@ -69,18 +68,12 @@ export function SidebarSection({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"div">) {
-  const id = useId();
-
   return (
-    <LazyMotion features={domAnimation}>
-      <LayoutGroup id={id}>
-        <div
-          {...props}
-          data-slot="section"
-          className={clsx(className, "flex flex-col gap-0.5")}
-        />
-      </LayoutGroup>
-    </LazyMotion>
+    <div
+      {...props}
+      data-slot="section"
+      className={clsx(className, "flex flex-col gap-0.5")}
+    />
   );
 }
 
@@ -170,10 +163,7 @@ export const SidebarItem = forwardRef(function SidebarItem(
   return (
     <span className={clsx(className, "relative")}>
       {current && (
-        <m.span
-          layoutId="current-indicator"
-          className="absolute inset-y-2 -left-4 w-0.5 rounded-full bg-zinc-950 dark:bg-white"
-        />
+        <span className="absolute inset-y-2 -left-4 w-0.5 rounded-full bg-zinc-950 dark:bg-white" />
       )}
       {typeof props.href === "string" ? (
         <Headless.CloseButton
