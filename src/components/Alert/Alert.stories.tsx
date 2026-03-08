@@ -14,6 +14,7 @@ const meta = {
 } satisfies Meta<typeof Alert>;
 
 export default meta;
+
 export const Default: StoryObj = {
   render: () => (
     <Alert open onClose={() => {}}>

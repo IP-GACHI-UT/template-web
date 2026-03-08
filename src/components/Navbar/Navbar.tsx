@@ -2,13 +2,7 @@
 
 import * as Headless from "@headlessui/react";
 import clsx from "clsx";
-import {
-  domAnimation,
-  LayoutGroup,
-  LazyMotion,
-  m,
-  useReducedMotion,
-} from "motion/react";
+import { domAnimation, LayoutGroup, LazyMotion, m } from "motion/react";
 import type React from "react";
 import { forwardRef, useId } from "react";
 import { TouchTarget } from "../Button";
@@ -85,7 +79,6 @@ export const NavbarItem = forwardRef(function NavbarItem(
   ),
   ref: React.ForwardedRef<HTMLAnchorElement | HTMLButtonElement>,
 ) {
-  const shouldReduceMotion = useReducedMotion();
   const classes = clsx(
     // Base
     "relative flex min-w-0 items-center gap-3 rounded-lg p-2 text-left text-base/6 font-medium text-zinc-950 sm:text-sm/5",
@@ -107,15 +100,12 @@ export const NavbarItem = forwardRef(function NavbarItem(
 
   return (
     <span className={clsx(className, "relative")}>
-      {current &&
-        (shouldReduceMotion ? (
-          <span className="absolute inset-x-2 -bottom-2.5 h-0.5 rounded-full bg-zinc-950 dark:bg-white" />
-        ) : (
-          <m.span
-            layoutId="current-indicator"
-            className="absolute inset-x-2 -bottom-2.5 h-0.5 rounded-full bg-zinc-950 dark:bg-white"
-          />
-        ))}
+      {current && (
+        <m.span
+          layoutId="current-indicator"
+          className="absolute inset-x-2 -bottom-2.5 h-0.5 rounded-full bg-zinc-950 dark:bg-white"
+        />
+      )}
       {typeof props.href === "string" ? (
         <Link
           {...props}

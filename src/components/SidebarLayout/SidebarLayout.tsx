@@ -64,10 +64,12 @@ export function SidebarLayout({
       {/* Sidebar on desktop */}
       <div className="fixed inset-y-0 left-0 w-64 max-lg:hidden">{sidebar}</div>
 
-      {/* Sidebar on mobile */}
-      <MobileSidebar open={showSidebar} close={() => setShowSidebar(false)}>
-        {sidebar}
-      </MobileSidebar>
+      {/* Sidebar on mobile — only mount when opened to avoid SSR useId mismatch */}
+      {showSidebar && (
+        <MobileSidebar open={showSidebar} close={() => setShowSidebar(false)}>
+          {sidebar}
+        </MobileSidebar>
+      )}
 
       {/* Navbar on mobile */}
       <header className="flex items-center px-4 lg:hidden">

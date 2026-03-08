@@ -27,6 +27,7 @@ test.describe("Checkbox template page", () => {
     const smsCheckbox = page.getByRole("checkbox", {
       name: "SMS notifications",
     });
+    await expect(emailCheckbox).toBeVisible();
     await expect(emailCheckbox).toBeChecked();
     await expect(smsCheckbox).not.toBeChecked();
   });

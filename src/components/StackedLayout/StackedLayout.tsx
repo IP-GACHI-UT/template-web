@@ -61,10 +61,12 @@ export function StackedLayout({
 
   return (
     <div className="relative isolate flex min-h-svh w-full flex-col bg-white lg:bg-zinc-100 dark:bg-zinc-900 dark:lg:bg-zinc-950">
-      {/* Sidebar on mobile */}
-      <MobileSidebar open={showSidebar} close={() => setShowSidebar(false)}>
-        {sidebar}
-      </MobileSidebar>
+      {/* Sidebar on mobile — only mount when opened to avoid SSR useId mismatch */}
+      {showSidebar && (
+        <MobileSidebar open={showSidebar} close={() => setShowSidebar(false)}>
+          {sidebar}
+        </MobileSidebar>
+      )}
 
       {/* Navbar */}
       <header className="flex items-center px-4">

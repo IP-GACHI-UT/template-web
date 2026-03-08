@@ -22,6 +22,8 @@ test.describe("Radio template page", () => {
   });
 
   test("can switch radio selection", async ({ page }) => {
+    // Wait for hydration by confirming the default selection is active
+    await expect(page.getByRole("radio", { name: "Startup" })).toBeChecked();
     const businessRadio = page.getByRole("radio", { name: "Business" });
     await businessRadio.click();
     await expect(businessRadio).toBeChecked();
