@@ -84,12 +84,12 @@ export function Combobox<T>({
             // Invalid state
             "data-invalid:border-red-500 data-invalid:data-hover:border-red-500 dark:data-invalid:border-red-500 dark:data-invalid:data-hover:border-red-500",
             // Disabled state
-            "data-disabled:border-zinc-950/20 dark:data-disabled:border-white/15 dark:data-disabled:bg-white/2.5 dark:data-hover:data-disabled:border-white/15",
+            "data-disabled:cursor-not-allowed data-disabled:border-zinc-950/20 dark:data-disabled:border-white/15 dark:data-disabled:bg-white/2.5 dark:data-hover:data-disabled:border-white/15",
             // System icons
             "dark:scheme-dark",
           ])}
         />
-        <Headless.ComboboxButton className="group absolute inset-y-0 right-0 flex items-center px-2">
+        <Headless.ComboboxButton className="group absolute inset-y-0 right-0 flex cursor-pointer items-center px-2">
           <svg
             className="size-5 stroke-zinc-500 group-data-disabled:stroke-zinc-600 group-data-hover:stroke-zinc-700 sm:size-4 dark:stroke-zinc-400 dark:group-data-hover:stroke-zinc-300 forced-colors:stroke-[CanvasText]"
             viewBox="0 0 16 16"
@@ -161,7 +161,7 @@ export function ComboboxOption<T>({
       {...props}
       className={clsx(
         // Basic layout
-        "group/option grid w-full cursor-default grid-cols-[1fr_--spacing(5)] items-baseline gap-x-2 rounded-lg py-2.5 pr-2 pl-3.5 sm:grid-cols-[1fr_--spacing(4)] sm:py-1.5 sm:pr-2 sm:pl-3",
+        "group/option grid w-full cursor-pointer grid-cols-[1fr_--spacing(5)] items-baseline gap-x-2 rounded-lg py-2.5 pr-2 pl-3.5 sm:grid-cols-[1fr_--spacing(4)] sm:py-1.5 sm:pr-2 sm:pl-3",
         // Typography
         "text-base/6 text-zinc-950 sm:text-sm/6 dark:text-white forced-colors:text-[CanvasText]",
         // Focus
@@ -169,7 +169,7 @@ export function ComboboxOption<T>({
         // Forced colors mode
         "forced-color-adjust-none forced-colors:data-focus:bg-[Highlight] forced-colors:data-focus:text-[HighlightText]",
         // Disabled
-        "data-disabled:opacity-50",
+        "data-disabled:cursor-not-allowed data-disabled:opacity-50",
       )}
     >
       <span className={clsx(className, sharedClasses)}>{children}</span>

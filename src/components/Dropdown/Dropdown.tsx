@@ -66,13 +66,13 @@ export function DropdownItem({
   const classes = clsx(
     className,
     // Base styles
-    "group cursor-default rounded-lg px-3.5 py-2.5 focus:outline-hidden sm:px-3 sm:py-1.5",
+    "group cursor-pointer rounded-lg px-3.5 py-2.5 focus:outline-hidden sm:px-3 sm:py-1.5",
     // Text styles
     "text-left text-base/6 text-zinc-950 sm:text-sm/6 dark:text-white forced-colors:text-[CanvasText]",
     // Focus
     "data-focus:bg-blue-500 data-focus:text-white",
     // Disabled state
-    "data-disabled:opacity-50",
+    "data-disabled:cursor-not-allowed data-disabled:opacity-50",
     // Forced colors mode
     "forced-color-adjust-none forced-colors:data-focus:bg-[Highlight] forced-colors:data-focus:text-[HighlightText] forced-colors:data-focus:*:data-[slot=icon]:text-[HighlightText]",
     // Use subgrid when available but fallback to an explicit grid layout if not

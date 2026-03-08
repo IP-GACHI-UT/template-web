@@ -34,7 +34,7 @@ export function Listbox<T>({
           // Focus ring
           "after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:ring-transparent after:ring-inset data-focus:after:ring-2 data-focus:after:ring-blue-500",
           // Disabled state
-          "data-disabled:opacity-50 data-disabled:before:bg-zinc-950/5 data-disabled:before:shadow-none",
+          "cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-50 data-disabled:before:bg-zinc-950/5 data-disabled:before:shadow-none",
         ])}
       >
         <Headless.ListboxSelectedOption
@@ -146,7 +146,7 @@ export function ListboxOption<T>({
           <div
             className={clsx(
               // Basic layout
-              "group/option grid cursor-default grid-cols-[--spacing(5)_1fr] items-baseline gap-x-2 rounded-lg py-2.5 pr-3.5 pl-2 sm:grid-cols-[--spacing(4)_1fr] sm:py-1.5 sm:pr-3 sm:pl-1.5",
+              "group/option grid cursor-pointer grid-cols-[--spacing(5)_1fr] items-baseline gap-x-2 rounded-lg py-2.5 pr-3.5 pl-2 sm:grid-cols-[--spacing(4)_1fr] sm:py-1.5 sm:pr-3 sm:pl-1.5",
               // Typography
               "text-base/6 text-zinc-950 sm:text-sm/6 dark:text-white forced-colors:text-[CanvasText]",
               // Focus
@@ -154,7 +154,7 @@ export function ListboxOption<T>({
               // Forced colors mode
               "forced-color-adjust-none forced-colors:data-focus:bg-[Highlight] forced-colors:data-focus:text-[HighlightText]",
               // Disabled
-              "data-disabled:opacity-50",
+              "data-disabled:cursor-not-allowed data-disabled:opacity-50",
             )}
           >
             <svg

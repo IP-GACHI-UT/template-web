@@ -13,7 +13,7 @@ const styles = {
     // Focus
     "focus:not-data-focus:outline-hidden data-focus:outline-2 data-focus:outline-offset-2 data-focus:outline-blue-500",
     // Disabled
-    "data-disabled:opacity-50",
+    "cursor-pointer data-disabled:cursor-not-allowed data-disabled:opacity-50",
     // Icon
     "*:data-[slot=icon]:-mx-0.5 *:data-[slot=icon]:my-0.5 *:data-[slot=icon]:size-5 *:data-[slot=icon]:shrink-0 *:data-[slot=icon]:self-center *:data-[slot=icon]:text-(--btn-icon) sm:*:data-[slot=icon]:my-1 sm:*:data-[slot=icon]:size-4 forced-colors:[--btn-icon:ButtonText] forced-colors:data-hover:[--btn-icon:ButtonText]",
   ],
@@ -194,11 +194,7 @@ export const Button = forwardRef(function Button(
       <TouchTarget>{children}</TouchTarget>
     </Link>
   ) : (
-    <Headless.Button
-      {...props}
-      className={clsx(classes, "cursor-default")}
-      ref={ref}
-    >
+    <Headless.Button {...props} className={classes} ref={ref}>
       <TouchTarget>{children}</TouchTarget>
     </Headless.Button>
   );
