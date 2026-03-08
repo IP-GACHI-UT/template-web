@@ -25,7 +25,29 @@ detect_os() {
   esac
 }
 
+# --- WSL 判定 ---
+is_wsl() {
+  [ -f /proc/version ] && grep -qi microsoft /proc/version 2>/dev/null
+}
+
 OS=$(detect_os)
+
+# WSL 環境では必要なパッケージを確認・インストール
+if [ "$OS" = "linux" ] && is_wsl; then
+  info "WSL 環境を検出しました"
+  missing_deps=()
+  command -v curl &>/dev/null || missing_deps+=("curl")
+  command -v unzip &>/dev/null || missing_deps+=("unzip")
+  if [ ${#missing_deps[@]} -gt 0 ]; then
+    info "不足パッケージをインストールします: ${missing_deps[*]}"
+    if command -v apt-get &>/dev/null; then
+      sudo apt-get update -qq && sudo apt-get install -y -qq "${missing_deps[@]}"
+    else
+      error "パッケージマネージャーが見つかりません。手動でインストールしてください: ${missing_deps[*]}"
+      exit 1
+    fi
+  fi
+fi
 
 # === 1. Node.js チェック ===
 info "Node.js を確認しています..."
@@ -118,7 +140,13 @@ pnpm install
 ok "依存関係のインストール完了"
 
 # === 4. Playwright ブラウザ (E2E テスト用、オプション) ===
-read -r -p "$(printf "\033[1;34m[INFO]\033[0m  Playwright ブラウザをインストールしますか？(E2E テスト用) [y/N]: ")" INSTALL_PW
+if [ -t 0 ]; then
+  # 対話モード: ユーザーに確認
+  read -r -p "$(printf "\033[1;34m[INFO]\033[0m  Playwright ブラウザをインストールしますか？(E2E テスト用) [y/N]: ")" INSTALL_PW
+else
+  # 非対話モード (パイプ/IDE ターミナル等): スキップ
+  INSTALL_PW="N"
+fi
 if [[ "$INSTALL_PW" =~ ^[Yy]$ ]]; then
   pnpm exec playwright install chromium
   ok "Playwright Chromium インストール完了"
